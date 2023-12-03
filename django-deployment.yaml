@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app-v3
+  labels:
+    app: django-v3
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: django-v3
+  template:
+    metadata:
+      labels:
+        app: django-v3
+    spec:
+      containers:
+        - image: criz27/django-crud-3:v1
+          name: django-v3
+          ports:
+            - containerPort: 8000
+              name: gunicorn

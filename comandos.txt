@@ -1,0 +1,18 @@
+#Crear imagen
+
+docker build -t django-crud-3 .
+docker images
+docker run -p 80:8000 django-crud-3
+
+#Subir imagen a dockerhub
+
+docker login
+docker tag django-crud-3:latest criz27/jango-crud-3:v1
+docker push criz27/jango-crud-3:v1
+
+#Configurar kubernetes
+
+kubectl apply -f django-deployment.yaml
+kubectl apply -f django-svc.yaml
+
+kubectl port-forward svc/service-3 port:80

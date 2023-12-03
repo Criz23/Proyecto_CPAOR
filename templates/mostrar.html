@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Admin Dashboard Panel</title>
+</head>
+<body>
+    <nav>
+        <div class="wrapper">
+            {% for empleado in empleados %}
+            <h2>Empleado {{ empleado.id }}</h2>
+            <form action="r", method="GET">
+            <div class="menu-items">
+                <ul class="nav-links">
+                    <li>
+                        <span class="link-name">Nombre: {{ empleado.name }}</span>
+                        <span class="link-name">Email: {{ empleado.email }}</span>
+                        <span class="link-name">Direccion: {{ empleado.address }}</span>
+                    </li>
+                </ul>
+            </div>
+            {% endfor %}
+            <div class="input-box button">
+                <input type="Submit" value="Regresar">
+              </div>
+            </form>
+          </div>
+    </nav>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
